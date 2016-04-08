@@ -1,0 +1,12 @@
+web:
+  extends:
+    file: common.yml
+    service: web
+  links:
+   - redis
+  environment:
+   - REDIS_HOST=redis
+redis:
+  image: redis:latest
+  ports:
+   - "6379:6379"
